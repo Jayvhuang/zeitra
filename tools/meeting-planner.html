@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Meeting Planner — Zeitra</title>
+<meta name="description" content="Find overlapping working hours across multiple time zones so global teams can pick a meeting time that suits everyone."/>
+<link rel="canonical" href="https://zeitra.com/tools/meeting-planner.html"/>
+<link rel="alternate" hreflang="en" href="https://zeitra.com/tools/meeting-planner.html"/>
+<link rel="alternate" hreflang="zh" href="https://zeitra.com/tools/meeting-planner.html?lang=zh"/>
+<link rel="alternate" hreflang="x-default" href="https://zeitra.com/tools/meeting-planner.html"/>
+<meta property="og:title" content="Meeting Planner — Zeitra"/>
+<meta property="og:description" content="Find overlapping working hours across multiple time zones so global teams can pick a meeting time that suits everyone."/>
+<meta property="og:url" content="https://zeitra.com/tools/meeting-planner.html"/>
+<meta property="og:image" content="https://zeitra.com/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<style>
+:root{--bg:#f7f8fc;--surface:#fff;--text:#1e1b4b;--muted:#5b5b7a;--brand:#4338ca;--brand-2:#6366f1;--accent:#f59e0b;--line:#e2e5f3}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:var(--brand);text-decoration:none}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+header{border-bottom:1px solid var(--line);background:var(--surface)}
+.bar{display:flex;align-items:center;height:60px;gap:10px}
+.logo{font-weight:800;font-size:22px;display:flex;align-items:center;gap:9px}
+.logo .mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--brand),var(--accent));display:grid;place-items:center;color:#fff}
+.hero{padding:40px 0 18px;background:radial-gradient(900px 320px at 50% -120px,color-mix(in srgb,var(--brand) 20%,transparent),transparent)}
+.hero h1{font-size:clamp(26px,4.5vw,40px);margin:0 0 8px}
+.hero .zh{color:var(--muted);font-size:18px;margin:0 0 18px}
+.cta{display:inline-block;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;font-weight:800;padding:13px 24px;border-radius:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;margin:20px 0;box-shadow:0 10px 30px rgba(30,27,75,.07)}
+.card h2{margin-top:0}
+.card ul{padding-left:20px}
+.card li{margin:6px 0}
+.faq details{border:1px solid var(--line);border-radius:12px;padding:4px 16px;margin:10px 0;background:var(--surface)}
+summary{font-weight:700;cursor:pointer;padding:12px 0}
+details p{color:var(--muted);margin:0 0 14px}
+footer{border-top:1px solid var(--line);padding:24px 0;margin-top:24px;font-size:14px;color:var(--muted)}
+.lang{font-size:13px;color:var(--muted)}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebPage",
+  "name":"Meeting Planner",
+  "url":"https://zeitra.com/tools/meeting-planner.html",
+  "description":"Find overlapping working hours across multiple time zones so global teams can pick a meeting time that suits everyone.",
+  "inLanguage":["en","zh"],
+  "isPartOf":{"@type":"WebSite","name":"Zeitra","url":"https://zeitra.com/"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"How many time zones can I compare?","acceptedAnswer":{"@type":"Answer","text":"You can add as many time zones as you like; rows where everyone is within working hours are highlighted in amber."}},
+    {"@type":"Question","name":"Can I set custom working hours?","acceptedAnswer":{"@type":"Answer","text":"Yes. Set the work start and end hour for the whole group; the planner recalculates the overlap instantly."}},
+    {"@type":"Question","name":"Does it respect daylight saving time?","acceptedAnswer":{"@type":"Answer","text":"Yes. Each zone's local time is computed with the browser's timezone database, including DST."}}
+  ]
+}
+</script>
+</head>
+<body>
+<header><div class="wrap bar"><div class="logo"><span class="mark">⏱</span><span>Zeitra</span></div></div></header>
+<section class="hero"><div class="wrap">
+  <h1>Meeting Planner</h1>
+  <p class="zh">会议时间规划 · Find overlapping working hours across multiple time zones so global teams can pick a meeting time that suits everyone.</p>
+  <a class="cta" href="https://zeitra.com/#tool-meeting-planner">Open Meeting Planner →</a>
+</div></section>
+<main class="wrap">
+  <div class="card">
+    <h2>About this tool</h2>
+    <p>Find overlapping working hours across multiple time zones so global teams can pick a meeting time that suits everyone.</p>
+    <p class="lang">查找多个时区的工作时间重叠，帮助全球团队选出对所有人合适的会议时间。</p>
+    <p>This tool is part of <a href="https://zeitra.com/">Zeitra</a>, a free, private, bilingual (EN / 中文) time &amp; date toolkit that runs entirely in your browser — no login, no tracking.</p>
+  </div>
+  <section class="faq">
+    <h2>Frequently asked questions</h2>
+    <details><summary>How many time zones can I compare?</summary><p>You can add as many time zones as you like; rows where everyone is within working hours are highlighted in amber.</p></details>
+    <details><summary>Can I set custom working hours?</summary><p>Yes. Set the work start and end hour for the whole group; the planner recalculates the overlap instantly.</p></details>
+    <details><summary>Does it respect daylight saving time?</summary><p>Yes. Each zone's local time is computed with the browser's timezone database, including DST.</p></details>
+  </section>
+</main>
+<footer><div class="wrap">
+  <a href="https://zeitra.com/">← Back to Zeitra</a> · <a href="https://zeitra.com/privacy.html">Privacy Policy</a>
+  <p>© 2026 Zeitra. All tools are provided for general informational use.</p>
+</div></footer>
+</body>
+</html>
