@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zeitra — World Clock, Time Zone Converter & Date Calculators</title>
+<meta name="description" content="Zeitra is a free, private toolkit for world clocks, time zone conversion, meeting planning, age calculation, and date math. Bilingual EN / 中文, no login, all in your browser." />
+<meta name="keywords" content="world clock, time zone converter, meeting planner, age calculator, date difference, date calculator, countdown timer, duration calculator, 世界时钟, 时区转换器, 年龄计算器, 日期计算器, 倒计时" />
+<link rel="canonical" href="https://zeitra.com/" />
+<link rel="alternate" hreflang="en" href="https://zeitra.com/" />
+<link rel="alternate" hreflang="zh" href="https://zeitra.com/?lang=zh" />
+<link rel="alternate" hreflang="x-default" href="https://zeitra.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Zeitra — World Clock, Time Zone Converter & Date Calculators" />
+<meta property="og:description" content="Free, private, bilingual time & date toolkit. World clocks, time zone conversion, meeting planner, age & date calculators. No login." />
+<meta property="og:url" content="https://zeitra.com/" />
+<meta property="og:image" content="https://zeitra.com/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Zeitra — Time & Date Toolkit" />
+<meta name="twitter:description" content="Free, private, bilingual world clocks, time zone converter, meeting planner and date calculators." />
+<meta name="twitter:image" content="https://zeitra.com/og-image.png" />
+<meta name="theme-color" content="#1e1b4b" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Zeitra",
+  "url": "https://zeitra.com/",
+  "description": "A free, private, bilingual (EN / 中文) toolkit for world clocks, time zone conversion, meeting planning, age calculation and date math.",
+  "inLanguage": ["en", "zh"],
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://zeitra.com/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Zeitra Time & Date Tools",
+  "itemListOrder": "Unordered",
+  "numberOfItems": 8,
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"name":"World Clock","url":"https://zeitra.com/tools/world-clock.html"},
+    {"@type":"ListItem","position":2,"name":"Time Zone Converter","url":"https://zeitra.com/tools/timezone-converter.html"},
+    {"@type":"ListItem","position":3,"name":"Meeting Planner","url":"https://zeitra.com/tools/meeting-planner.html"},
+    {"@type":"ListItem","position":4,"name":"Age Calculator","url":"https://zeitra.com/tools/age-calculator.html"},
+    {"@type":"ListItem","position":5,"name":"Date Difference","url":"https://zeitra.com/tools/date-difference.html"},
+    {"@type":"ListItem","position":6,"name":"Date Calculator","url":"https://zeitra.com/tools/date-calculator.html"},
+    {"@type":"ListItem","position":7,"name":"Countdown Timer","url":"https://zeitra.com/tools/countdown.html"},
+    {"@type":"ListItem","position":8,"name":"Duration Calculator","url":"https://zeitra.com/tools/duration.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Zeitra",
+  "url": "https://zeitra.com/",
+  "logo": "https://zeitra.com/og-image.png",
+  "description": "Zeitra builds free, private, browser-only time and date calculators with bilingual EN / 中文 support."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Is Zeitra free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every Zeitra tool is free, requires no account, and runs entirely in your browser."}},
+    {"@type":"Question","name":"Do you collect or upload my data?","acceptedAnswer":{"@type":"Answer","text":"No. All calculations happen locally on your device. Zeitra does not upload, store, or track your inputs. Some tool selections are saved only in your browser's localStorage for convenience."}},
+    {"@type":"Question","name":"Are the time conversions accurate with daylight saving time?","acceptedAnswer":{"@type":"Answer","text":"Zeitra uses your browser's built-in IANA timezone database, so daylight saving time transitions are applied automatically. Results are educational estimates and may be off by an hour at the exact moment of a DST switch."}},
+    {"@type":"Question","name":"Does Zeitra support Chinese?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use the EN / 中文 switch in the header to toggle the entire interface between English and Simplified Chinese."}},
+    {"@type":"Question","name":"How many cities does the World Clock support?","acceptedAnswer":{"@type":"Answer","text":"The World Clock ships with roughly 50 major cities across every continent. You can add or remove cities and your selection is remembered in your browser."}},
+    {"@type":"Question","name":"Is Zeitra available as an app?","acceptedAnswer":{"@type":"Answer","text":"Zeitra is a website that works on desktop and mobile browsers. You can add it to your home screen for an app-like experience; no installation is required."}}
+  ]
+}
+</script>
+<style>
+:root{
+  --bg:#f7f8fc; --surface:#ffffff; --surface-2:#eef0fa; --text:#1e1b4b; --muted:#5b5b7a;
+  --brand:#4338ca; --brand-2:#6366f1; --accent:#f59e0b; --accent-2:#fbbf24; --line:#e2e5f3;
+  --ok:#16a34a; --ok-bg:#dcfce7; --bad:#dc2626; --bad-bg:#fee2e2; --shadow:0 10px 30px rgba(30,27,75,.08);
+}
+html[data-theme="dark"]{
+  --bg:#0f1023; --surface:#171833; --surface-2:#1f2147; --text:#eef0ff; --muted:#a6a8d0;
+  --brand:#818cf8; --brand-2:#a5b4fc; --accent:#fbbf24; --accent-2:#fcd34d; --line:#2a2c55;
+  --ok:#22c55e; --ok-bg:#0f2e1c; --bad:#f87171; --bad-bg:#3a1414; --shadow:0 10px 30px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--brand);text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:14px;height:60px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;letter-spacing:.3px;color:var(--text)}
+.logo .mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--brand),var(--accent));display:grid;place-items:center;color:#fff;font-size:16px;box-shadow:var(--shadow)}
+.logo .mark span{transform:translateY(-1px)}
+.spacer{flex:1}
+.toggle{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--surface-2)}
+.toggle button{border:0;background:transparent;color:var(--muted);padding:7px 13px;font-weight:700;cursor:pointer;font-size:13px}
+.toggle button.active{background:var(--brand);color:#fff}
+.iconbtn{width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer;font-size:17px}
+.hero{padding:46px 0 26px;text-align:center;background:radial-gradient(1200px 400px at 50% -120px,color-mix(in srgb,var(--brand) 22%,transparent),transparent)}
+.hero h1{font-size:clamp(28px,5vw,44px);margin:0 0 12px;line-height:1.15}
+.hero p{font-size:clamp(15px,2.4vw,19px);color:var(--muted);max-width:680px;margin:0 auto 22px}
+.cta{display:inline-block;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;font-weight:800;padding:13px 26px;border-radius:12px;box-shadow:var(--shadow);border:0;cursor:pointer;font-size:16px}
+.cta:hover{filter:brightness(1.05)}
+.adslot{margin:22px auto;max-width:728px;border:1px dashed var(--line);border-radius:10px;background:var(--surface-2);color:var(--muted);font-size:13px;text-align:center;padding:26px 10px}
+.toolbar{position:sticky;top:60px;z-index:40;background:color-mix(in srgb,var(--surface) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;padding:12px 0}
+.toolbar button{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:11px;padding:11px 8px;cursor:pointer;font-weight:700;font-size:13.5px;display:flex;flex-direction:column;align-items:center;gap:5px;transition:.15s}
+.toolbar button .ico{font-size:19px}
+.toolbar button.active{background:var(--brand);color:#fff;border-color:var(--brand)}
+@media(max-width:900px){.toolbar{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:540px){.toolbar{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tool{scroll-margin-top:170px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;margin:22px 0;box-shadow:var(--shadow)}
+.tool h2{margin:0 0 4px;font-size:23px}
+.tool .sub{color:var(--muted);margin:0 0 18px}
+.row{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end}
+.field{display:flex;flex-direction:column;gap:6px;min-width:160px;flex:1}
+.field label{font-size:13px;font-weight:700;color:var(--muted)}
+input,select{font:inherit;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);width:100%}
+input[type=time]{width:auto}
+.btn{background:var(--brand);color:#fff;border:0;border-radius:10px;padding:11px 20px;font-weight:800;cursor:pointer;font-size:15px}
+.btn:hover{filter:brightness(1.05)}
+.result{margin-top:18px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:16px 18px;font-size:15.5px}
+.result .big{font-size:26px;font-weight:800;color:var(--brand)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}
+.stat b{display:block;font-size:22px;color:var(--brand)}
+/* world clock */
+.clocks{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:6px}
+.clock{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;position:relative}
+.clock .city{font-weight:800;display:flex;align-items:center;gap:8px}
+.clock .time{font-size:30px;font-weight:800;font-variant-numeric:tabular-nums;margin:6px 0 2px;letter-spacing:.5px}
+.clock .meta{font-size:13px;color:var(--muted)}
+.clock .rm{position:absolute;top:10px;right:12px;border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:16px}
+.tag{display:inline-block;font-size:11px;font-weight:800;padding:2px 8px;border-radius:999px;margin-left:6px}
+.tag.day{background:var(--accent-2);color:#5b3b00}
+.tag.night{background:#312e81;color:#fff}
+/* meeting planner */
+.mp-wrap{overflow-x:auto;margin-top:14px}
+table.mp{border-collapse:collapse;width:100%;min-width:520px;font-size:14px}
+table.mp th,table.mp td{border:1px solid var(--line);padding:8px 10px;text-align:center}
+table.mp th{background:var(--surface-2);position:sticky;top:0}
+table.mp td.ok{background:var(--ok-bg);color:var(--ok);font-weight:800}
+table.mp td.no{color:var(--muted)}
+table.mp tr.overlap td{outline:2px solid var(--accent);outline-offset:-2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700}
+.chip button{border:0;background:transparent;color:var(--bad);cursor:pointer;font-size:14px}
+/* affiliate */
+.aff{margin:26px 0}
+.aff h3{font-size:18px;margin:0 0 4px}
+.aff .disc{font-size:12.5px;color:var(--muted);margin:0 0 14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.card .emoji{font-size:28px}
+.card b{font-size:15px}
+.card p{margin:0;font-size:13px;color:var(--muted);flex:1}
+.card a{font-weight:800;font-size:14px}
+/* faq */
+.faq{margin:30px 0}
+.faq h2{font-size:24px}
+details{border:1px solid var(--line);border-radius:12px;padding:4px 16px;margin:10px 0;background:var(--surface)}
+summary{font-weight:700;cursor:pointer;padding:12px 0}
+details p{margin:0 0 14px;color:var(--muted)}
+footer{border-top:1px solid var(--line);background:var(--surface);padding:28px 0;margin-top:30px}
+.footlinks{display:flex;flex-wrap:wrap;gap:10px 18px;margin-bottom:14px}
+.footlinks a{color:var(--muted);font-size:14px;font-weight:600}
+.trust{font-size:13px;color:var(--muted)}
+.copyr{font-size:12.5px;color:var(--muted);margin-top:10px}
+.note{font-size:12.5px;color:var(--muted);margin-top:8px}
+.hide{display:none}
+</style>
+  
+
+<!-- Google AdSense — Auto Ads mode (PLACEHOLDER, inert).
+     To activate: (1) replace ca-pub-XXXXXXXXXXXXXX with your real publisher ID,
+     (2) remove the comment markers around the <script> line below. No other code changes needed. -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <div class="logo"><span class="mark"><span>⏱</span></span><span>Zeitra</span></div>
+    <div class="spacer"></div>
+    <div class="toggle" id="langToggle">
+      <button data-lang="en" class="active">EN</button>
+      <button data-lang="zh">中文</button>
+    </div>
+    <button class="iconbtn" id="themeBtn" title="Theme">🌙</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1 data-i18n="hero_title">World clocks, time zones & date math — free and private</h1>
+    <p data-i18n="hero_sub">Zeitra is a bilingual (EN / 中文) toolkit that converts time zones, plans meetings across the globe, and calculates ages and dates — all in your browser, no login, no tracking.</p>
+    <button class="cta" onclick="showTool('world-clock')" data-i18n="hero_cta">Open World Clock</button>
+  </div>
+</section>
+
+
+<nav class="toolbar" id="toolbar">
+  <button data-tool="world-clock" class="active"><span class="ico">🌐</span><span data-i18n="t_world">World Clock</span></button>
+  <button data-tool="timezone-converter"><span class="ico">🔁</span><span data-i18n="t_tz">Time Zone Converter</span></button>
+  <button data-tool="meeting-planner"><span class="ico">🤝</span><span data-i18n="t_mp">Meeting Planner</span></button>
+  <button data-tool="age-calculator"><span class="ico">🎂</span><span data-i18n="t_age">Age Calculator</span></button>
+  <button data-tool="date-difference"><span class="ico">📅</span><span data-i18n="t_diff">Date Difference</span></button>
+  <button data-tool="date-calculator"><span class="ico">➕</span><span data-i18n="t_date">Date Calculator</span></button>
+  <button data-tool="countdown"><span class="ico">⏳</span><span data-i18n="t_cd">Countdown Timer</span></button>
+  <button data-tool="duration"><span class="ico">⏱️</span><span data-i18n="t_dur">Duration Calculator</span></button>
+</nav>
+
+<main class="wrap">
+
+  <!-- 1. World Clock -->
+  <section class="tool" id="tool-world-clock">
+    <h2 data-i18n="h_world">World Clock</h2>
+    <p class="sub" data-i18n="s_world">Live local time for cities around the world. Add or remove cities — your selection is saved in this browser.</p>
+    <div class="row">
+      <div class="field" style="flex:2">
+        <label data-i18n="add_city">Add a city</label>
+        <select id="wcAdd"></select>
+      </div>
+      <div class="field" style="flex:0">
+        <label>&nbsp;</label>
+        <button class="btn" onclick="wcAddCity()" data-i18n="add_btn">Add</button>
+      </div>
+    </div>
+    <div class="clocks" id="wcClocks"></div>
+    <p class="note" data-i18n="world_note">Day/night is a simple 6:00–18:00 local heuristic for illustration.</p>
+  </section>
+
+  <!-- 2. Time Zone Converter -->
+  <section class="tool hide" id="tool-timezone-converter">
+    <h2 data-i18n="h_tz">Time Zone Converter</h2>
+    <p class="sub" data-i18n="s_tz">Convert a specific date and time from one time zone to another. Daylight saving time is applied automatically.</p>
+    <div class="row">
+      <div class="field"><label data-i18n="date_lbl">Date</label><input type="date" id="tzDate"></div>
+      <div class="field"><label data-i18n="time_lbl">Time</label><input type="time" id="tzTime" value="09:00"></div>
+      <div class="field"><label data-i18n="from_lbl">From</label><select id="tzFrom"></select></div>
+      <div class="field"><label data-i18n="to_lbl">To</label><select id="tzTo"></select></div>
+      <div class="field" style="flex:0"><label>&nbsp;</label><button class="btn" onclick="tzConvert()" data-i18n="convert_btn">Convert</button></div>
+    </div>
+    <div class="result" id="tzResult"></div>
+    <p class="note" data-i18n="tz_note">Near a DST switch the result may be off by an hour; treat as an estimate.</p>
+  </section>
+
+  <!-- 3. Meeting Planner -->
+  <section class="tool hide" id="tool-meeting-planner">
+    <h2 data-i18n="h_mp">Meeting Planner</h2>
+    <p class="sub" data-i18n="s_mp">Find overlapping working hours across multiple time zones. Rows highlighted in amber work for everyone.</p>
+    <div class="row">
+      <div class="field" style="flex:2"><label data-i18n="mp_add">Add a time zone</label><select id="mpAdd"></select></div>
+      <div class="field" style="flex:0"><label>&nbsp;</label><button class="btn" onclick="mpAddZone()" data-i18n="add_btn">Add</button></div>
+      <div class="field"><label data-i18n="mp_date">Date</label><input type="date" id="mpDate"></div>
+      <div class="field"><label data-i18n="mp_start">Work starts</label><input type="number" id="mpStart" value="9" min="0" max="23"></div>
+      <div class="field"><label data-i18n="mp_end">Work ends</label><input type="number" id="mpEnd" value="17" min="1" max="24"></div>
+    </div>
+    <div class="chips" id="mpChips"></div>
+    <div class="mp-wrap"><table class="mp" id="mpTable"></table></div>
+  </section>
+
+  <!-- 4. Age Calculator -->
+  <section class="tool hide" id="tool-age-calculator">
+    <h2 data-i18n="h_age">Age Calculator</h2>
+    <p class="sub" data-i18n="s_age">Your exact age in years, months and days, plus totals and your next birthday.</p>
+    <div class="row">
+      <div class="field"><label data-i18n="birth_lbl">Date of birth</label><input type="date" id="ageBirth"></div>
+      <div class="field"><label data-i18n="asof_lbl">As of (optional)</label><input type="date" id="ageAsOf"></div>
+      <div class="field" style="flex:0"><label>&nbsp;</label><button class="btn" onclick="calcAge()" data-i18n="calc_btn">Calculate</button></div>
+    </div>
+    <div class="result" id="ageResult"></div>
+  </section>
+
+  <!-- 5. Date Difference -->
+  <section class="tool hide" id="tool-date-difference">
+    <h2 data-i18n="h_diff">Date Difference</h2>
+    <p class="sub" data-i18n="s_diff">How many days, weeks, months and years between two dates.</p>
+    <div class="row">
+      <div class="field"><label data-i18n="from_date">From date</label><input type="date" id="diffFrom"></div>
+      <div class="field"><label data-i18n="to_date">To date</label><input type="date" id="diffTo"></div>
+      <div class="field" style="flex:0"><label>&nbsp;</label><button class="btn" onclick="calcDiff()" data-i18n="calc_btn">Calculate</button></div>
+    </div>
+    <div class="result" id="diffResult"></div>
+  </section>
+
+  <!-- 6. Date Calculator -->
+  <section class="tool hide" id="tool-date-calculator">
+    <h2 data-i18n="h_date">Date Calculator</h2>
+    <p class="sub" data-i18n="s_date">Add or subtract days, weeks, months or years from a date.</p>
+    <div class="row">
+      <div class="field"><label data-i18n="start_date">Start date</label><input type="date" id="dateStart"></div>
+      <div class="field"><label data-i18n="op_lbl">Operation</label>
+        <select id="dateOp"><option value="add" data-i18n="op_add">Add</option><option value="sub" data-i18n="op_sub">Subtract</option></select>
+      </div>
+      <div class="field"><label data-i18n="amount_lbl">Amount</label><input type="number" id="dateAmt" value="30" min="0"></div>
+      <div class="field"><label data-i18n="unit_lbl">Unit</label>
+        <select id="dateUnit"><option value="days" data-i18n="u_days">Days</option><option value="weeks" data-i18n="u_weeks">Weeks</option><option value="months" data-i18n="u_months">Months</option><option value="years" data-i18n="u_years">Years</option></select>
+      </div>
+      <div class="field" style="flex:0"><label>&nbsp;</label><button class="btn" onclick="calcDate()" data-i18n="calc_btn">Calculate</button></div>
+    </div>
+    <div class="result" id="dateResult"></div>
+  </section>
+
+  <!-- 7. Countdown Timer -->
+  <section class="tool hide" id="tool-countdown">
+    <h2 data-i18n="h_cd">Countdown Timer</h2>
+    <p class="sub" data-i18n="s_cd">Count down to any date and time, in your local time.</p>
+    <div class="row">
+      <div class="field"><label data-i18n="event_name">Event name</label><input type="text" id="cdName" placeholder="New Year"></div>
+      <div class="field"><label data-i18n="target_lbl">Target date & time</label><input type="datetime-local" id="cdTarget"></div>
+      <div class="field" style="flex:0"><label>&nbsp;</label><button class="btn" onclick="startCountdown()" data-i18n="start_btn">Start</button></div>
+    </div>
+    <div class="result" id="cdResult"></div>
+  </section>
+
+  <!-- 8. Duration Calculator -->
+  <section class="tool hide" id="tool-duration">
+    <h2 data-i18n="h_dur">Duration Calculator</h2>
+    <p class="sub" data-i18n="s_dur">How long between two clock times? Tick "ends next day" for overnight spans.</p>
+    <div class="row">
+      <div class="field"><label data-i18n="start_lbl">Start time</label><input type="time" id="durStart" value="09:00"></div>
+      <div class="field"><label data-i18n="end_lbl">End time</label><input type="time" id="durEnd" value="17:30"></div>
+      <div class="field"><label data-i18n="nextday_lbl">Ends next day</label><input type="checkbox" id="durNext" style="width:auto;height:22px"></div>
+      <div class="field" style="flex:0"><label>&nbsp;</label><button class="btn" onclick="calcDur()" data-i18n="calc_btn">Calculate</button></div>
+    </div>
+    <div class="result" id="durResult"></div>
+  </section>
+
+  <!-- Amazon Associates (placeholder tag zeitra-20) -->
+  <section class="aff">
+    <h3 data-i18n="aff_title">Hand-picked travel & time essentials</h3>
+    <p class="disc" data-i18n="aff_disc">As an Amazon Associate, Zeitra earns from qualifying purchases. This does not affect the price you pay.</p>
+    <div class="cards">
+      <div class="card"><div class="emoji">🌍</div><b data-i18n="aff1_t">World Travel Adapter</b><p data-i18n="aff1_d">One adapter for 150+ countries — essential for remote work across time zones.</p><a href="https://www.amazon.com/s?k=universal+travel+adapter&tag=zeitra-20" rel="sponsored nofollow noopener" target="_blank" data-i18n="aff_view">View on Amazon →</a></div>
+      <div class="card"><div class="emoji">🕰️</div><b data-i18n="aff2_t">Desk World Clock</b><p data-i18n="aff2_d">A multi-city display clock to keep global teams in view.</p><a href="https://www.amazon.com/s?k=world+clock+desk+display&tag=zeitra-20" rel="sponsored nofollow noopener" target="_blank" data-i18n="aff_view">View on Amazon →</a></div>
+      <div class="card"><div class="emoji">📔</div><b data-i18n="aff3_t">Planner & Calendar</b><p data-i18n="aff3_d">Paper planners that make cross-time-zone scheduling tangible.</p><a href="https://www.amazon.com/s?k=weekly+planner+2026&tag=zeitra-20" rel="sponsored nofollow noopener" target="_blank" data-i18n="aff_view">View on Amazon →</a></div>
+      <div class="card"><div class="emoji">⌚</div><b data-i18n="aff4_t">Dual-Time Watch</b><p data-i18n="aff4_d">A GMT watch that tracks a second time zone at a glance.</p><a href="https://www.amazon.com/s?k=gmt+watch&tag=zeitra-20" rel="sponsored nofollow noopener" target="_blank" data-i18n="aff_view">View on Amazon →</a></div>
+    </div>
+  </section>
+
+
+  <section class="faq">
+    <h2 data-i18n="faq_title">Frequently asked questions</h2>
+    <details><summary data-i18n="q1">Is Zeitra free to use?</summary><p data-i18n="a1">Yes. Every Zeitra tool is free, requires no account, and runs entirely in your browser.</p></details>
+    <details><summary data-i18n="q2">Do you collect or upload my data?</summary><p data-i18n="a2">No. All calculations happen locally on your device. Zeitra does not upload, store, or track your inputs. Some tool selections are saved only in your browser's localStorage for convenience.</p></details>
+    <details><summary data-i18n="q3">Are the time conversions accurate with daylight saving time?</summary><p data-i18n="a3">Zeitra uses your browser's built-in IANA timezone database, so daylight saving time transitions are applied automatically. Results are educational estimates and may be off by an hour at the exact moment of a DST switch.</p></details>
+    <details><summary data-i18n="q4">Does Zeitra support Chinese?</summary><p data-i18n="a4">Yes. Use the EN / 中文 switch in the header to toggle the entire interface between English and Simplified Chinese.</p></details>
+    <details><summary data-i18n="q5">How many cities does the World Clock support?</summary><p data-i18n="a5">The World Clock ships with roughly 50 major cities across every continent. You can add or remove cities and your selection is remembered in your browser.</p></details>
+    <details><summary data-i18n="q6">Is Zeitra available as an app?</summary><p data-i18n="a6">Zeitra is a website that works on desktop and mobile browsers. You can add it to your home screen for an app-like experience; no installation is required.</p></details>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footlinks">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="tools/world-clock.html">World Clock</a>
+      <a href="tools/timezone-converter.html">Time Zone Converter</a>
+      <a href="tools/meeting-planner.html">Meeting Planner</a>
+      <a href="tools/age-calculator.html">Age Calculator</a>
+      <a href="tools/date-difference.html">Date Difference</a>
+      <a href="tools/date-calculator.html">Date Calculator</a>
+      <a href="tools/countdown.html">Countdown Timer</a>
+      <a href="tools/duration.html">Duration Calculator</a>
+    </div>
+    <p class="trust" data-i18n="trust">🔒 Zeitra runs entirely in your browser. Nothing you enter is uploaded or stored on a server.</p>
+    <p class="copyr">© <span id="yr"></span> Zeitra. <span data-i18n="rights">All tools are provided for general informational use.</span></p>
+  </div>
+</footer>
+
+<script>
+/* ---------- i18n ---------- */
+const T = {
+  en:{
+    hero_title:"World clocks, time zones & date math — free and private",
+    hero_sub:"Zeitra is a bilingual (EN / 中文) toolkit that converts time zones, plans meetings across the globe, and calculates ages and dates — all in your browser, no login, no tracking.",
+    hero_cta:"Open World Clock",
+    t_world:"World Clock",t_tz:"Time Zone Converter",t_mp:"Meeting Planner",t_age:"Age Calculator",t_diff:"Date Difference",t_date:"Date Calculator",t_cd:"Countdown Timer",t_dur:"Duration Calculator",
+    h_world:"World Clock",s_world:"Live local time for cities around the world. Add or remove cities — your selection is saved in this browser.",
+    add_city:"Add a city",add_btn:"Add",world_note:"Day/night is a simple 6:00–18:00 local heuristic for illustration.",
+    h_tz:"Time Zone Converter",s_tz:"Convert a specific date and time from one time zone to another. Daylight saving time is applied automatically.",
+    date_lbl:"Date",time_lbl:"Time",from_lbl:"From",to_lbl:"To",convert_btn:"Convert",tz_note:"Near a DST switch the result may be off by an hour; treat as an estimate.",
+    h_mp:"Meeting Planner",s_mp:"Find overlapping working hours across multiple time zones. Rows highlighted in amber work for everyone.",
+    mp_add:"Add a time zone",mp_date:"Date",mp_start:"Work starts",mp_end:"Work ends",
+    h_age:"Age Calculator",s_age:"Your exact age in years, months and days, plus totals and your next birthday.",
+    birth_lbl:"Date of birth",asof_lbl:"As of (optional)",calc_btn:"Calculate",
+    h_diff:"Date Difference",s_diff:"How many days, weeks, months and years between two dates.",
+    from_date:"From date",to_date:"To date",
+    h_date:"Date Calculator",s_date:"Add or subtract days, weeks, months or years from a date.",
+    start_date:"Start date",op_lbl:"Operation",op_add:"Add",op_sub:"Subtract",amount_lbl:"Amount",unit_lbl:"Unit",u_days:"Days",u_weeks:"Weeks",u_months:"Months",u_years:"Years",
+    h_cd:"Countdown Timer",s_cd:"Count down to any date and time, in your local time.",
+    event_name:"Event name",target_lbl:"Target date & time",start_btn:"Start",
+    h_dur:"Duration Calculator",s_dur:"How long between two clock times? Tick \"ends next day\" for overnight spans.",
+    start_lbl:"Start time",end_lbl:"End time",nextday_lbl:"Ends next day",
+    aff_title:"Hand-picked travel & time essentials",aff_disc:"As an Amazon Associate, Zeitra earns from qualifying purchases. This does not affect the price you pay.",
+    aff1_t:"World Travel Adapter",aff1_d:"One adapter for 150+ countries — essential for remote work across time zones.",
+    aff2_t:"Desk World Clock",aff2_d:"A multi-city display clock to keep global teams in view.",
+    aff3_t:"Planner & Calendar",aff3_d:"Paper planners that make cross-time-zone scheduling tangible.",
+    aff4_t:"Dual-Time Watch",aff4_d:"A GMT watch that tracks a second time zone at a glance.",
+    aff_view:"View on Amazon →",
+    faq_title:"Frequently asked questions",
+    q1:"Is Zeitra free to use?",a1:"Yes. Every Zeitra tool is free, requires no account, and runs entirely in your browser.",
+    q2:"Do you collect or upload my data?",a2:"No. All calculations happen locally on your device. Zeitra does not upload, store, or track your inputs. Some tool selections are saved only in your browser's localStorage for convenience.",
+    q3:"Are the time conversions accurate with daylight saving time?",a3:"Zeitra uses your browser's built-in IANA timezone database, so daylight saving time transitions are applied automatically. Results are educational estimates and may be off by an hour at the exact moment of a DST switch.",
+    q4:"Does Zeitra support Chinese?",a4:"Yes. Use the EN / 中文 switch in the header to toggle the entire interface between English and Simplified Chinese.",
+    q5:"How many cities does the World Clock support?",a5:"The World Clock ships with roughly 50 major cities across every continent. You can add or remove cities and your selection is remembered in your browser.",
+    q6:"Is Zeitra available as an app?",a6:"Zeitra is a website that works on desktop and mobile browsers. You can add it to your home screen for an app-like experience; no installation is required.",
+    trust:"🔒 Zeitra runs entirely in your browser. Nothing you enter is uploaded or stored on a server.",
+    rights:"All tools are provided for general informational use.",
+    lbl_years:"years",lbl_months:"months",lbl_days:"days",lbl_day:"day",lbl_hours:"hours",lbl_minutes:"minutes",lbl_seconds:"seconds",
+    lbl_total:"Total",lbl_next_bday:"Next birthday",lbl_born_on:"Born on a",lbl_weekday:"weekday",lbl_overlap:"overlapping hours",lbl_none:"No overlap found",lbl_months_short:"mo",lbl_weeks:"weeks",lbl_past:"This date is in the past.",lbl_future:"This date is in the future.",lbl_select:"Please select",lbl_invalid:"Please enter valid dates.",lbl_remove:"remove"
+  },
+  zh:{
+    hero_title:"世界时钟、时区转换与日期计算 —— 免费且隐私",
+    hero_sub:"Zeitra 是一套中英双语工具，可在浏览器内完成时区转换、跨国会议规划以及年龄与日期计算，无需登录、不打扰、不追踪。",
+    hero_cta:"打开世界时钟",
+    t_world:"世界时钟",t_tz:"时区转换器",t_mp:"会议时间规划",t_age:"年龄计算器",t_diff:"日期差计算器",t_date:"日期加减计算器",t_cd:"倒计时",t_dur:"时长计算器",
+    h_world:"世界时钟",s_world:"全球城市的实时本地时间。可添加或移除城市 —— 你的选择会保存在本浏览器中。",
+    add_city:"添加城市",add_btn:"添加",world_note:"白天/夜晚采用本地 6:00–18:00 的简单判断，仅供参考。",
+    h_tz:"时区转换器",s_tz:"将特定日期与时间从一个时区转换到另一个时区，自动处理夏令时。",
+    date_lbl:"日期",time_lbl:"时间",from_lbl:"从",to_lbl:"到",convert_btn:"转换",tz_note:"在夏令时切换瞬间结果可能偏差一小时，仅供参考。",
+    h_mp:"会议时间规划",s_mp:"查找多个时区的工作时间重叠。琥珀色高亮的行对所有人都合适。",
+    mp_add:"添加时区",mp_date:"日期",mp_start:"上班时间",mp_end:"下班时间",
+    h_age:"年龄计算器",s_age:"精确计算你的年龄（年/月/日），以及总计与下一个生日。",
+    birth_lbl:"出生日期",asof_lbl:"截至日期（可选）",calc_btn:"计算",
+    h_diff:"日期差计算器",s_diff:"两个日期之间相差多少天、周、月、年。",
+    from_date:"开始日期",to_date:"结束日期",
+    h_date:"日期加减计算器",s_date:"对日期进行加/减天、周、月或年。",
+    start_date:"开始日期",op_lbl:"操作",op_add:"加",op_sub:"减",amount_lbl:"数量",unit_lbl:"单位",u_days:"天",u_weeks:"周",u_months:"月",u_years:"年",
+    h_cd:"倒计时",s_cd:"按你的本地时间，倒数到任意日期与时间。",
+    event_name:"事件名称",target_lbl:"目标日期与时间",start_btn:"开始",
+    h_dur:"时长计算器",s_dur:"两个时刻之间相差多久？跨夜请勾选「结束于次日」。",
+    start_lbl:"开始时间",end_lbl:"结束时间",nextday_lbl:"结束于次日",
+    aff_title:"精选旅行与时间好物",
+    aff_disc:"作为亚马逊联盟成员，Zeitra 可从其合格购买中获得佣金，不影响你的付款价格。",
+    aff1_t:"全球旅行转换插头",aff1_d:"一个插头适配 150+ 国家，跨时区远程办公必备。",
+    aff2_t:"桌面世界时钟",aff2_d:"多城市显示时钟，随时掌握全球团队时间。",
+    aff3_t:"计划本与日历",aff3_d:"纸质计划本，让跨时区排期更直观。",
+    aff4_t:"双时区腕表",aff4_d:"GMT 腕表，一眼查看第二个时区。",
+    aff_view:"在亚马逊查看 →",
+    faq_title:"常见问题",
+    q1:"Zeitra 免费吗？",a1:"是的。Zeitra 的所有工具均免费，无需账号，完全在浏览器内运行。",
+    q2:"你们会收集或上传我的数据吗？",a2:"不会。所有计算都在你的设备上本地完成。Zeitra 不上传、不存储、不追踪你的输入。部分工具选择仅保存在你浏览器的 localStorage 中以便使用。",
+    q3:"时区转换在夏令时下准确吗？",a3:"Zeitra 使用浏览器内置的 IANA 时区数据库，会自动应用夏令时切换。结果为教育性估算，在夏令时切换的瞬间可能偏差一小时。",
+    q4:"Zeitra 支持中文吗？",a4:"支持。使用右上角的 EN / 中文 开关即可在英文与简体中文之间切换整个界面。",
+    q5:"世界时钟支持多少城市？",a5:"世界时钟内置约 50 个遍布各大洲的主要城市。你可添加或移除城市，选择会被记住。",
+    q6:"Zeitra 有 App 吗？",a6:"Zeitra 是一个网站，可在桌面与移动浏览器中使用。你可将其添加到主屏幕获得类 App 体验，无需安装。",
+    trust:"🔒 Zeitra 完全在你的浏览器中运行。你输入的任何内容都不会被上传或存储到服务器。",
+    rights:"所有工具仅供一般信息用途。",
+    lbl_years:"年",lbl_months:"个月",lbl_days:"天",lbl_day:"天",lbl_hours:"小时",lbl_minutes:"分钟",lbl_seconds:"秒",
+    lbl_total:"总计",lbl_next_bday:"下一个生日",lbl_born_on:"出生于",lbl_weekday:"星期",lbl_overlap:"个重叠小时",lbl_none:"未找到重叠时间",lbl_months_short:"个月",lbl_weeks:"周",lbl_past:"该日期已过去。",lbl_future:"该日期尚未到来。",lbl_select:"请选择",lbl_invalid:"请输入有效日期。",lbl_remove:"移除"
+  }
+};
+let lang = localStorage.getItem('zeitra_lang') || 'en';
+const WK = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const WK_ZH = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+
+/* ---------- city data (IANA zones) ---------- */
+const CITIES = [
+  {n:"New York",c:"United States",tz:"America/New_York",f:"🇺🇸"},
+  {n:"Los Angeles",c:"United States",tz:"America/Los_Angeles",f:"🇺🇸"},
+  {n:"Chicago",c:"United States",tz:"America/Chicago",f:"🇺🇸"},
+  {n:"Denver",c:"United States",tz:"America/Denver",f:"🇺🇸"},
+  {n:"Phoenix",c:"United States",tz:"America/Phoenix",f:"🇺🇸"},
+  {n:"Honolulu",c:"United States",tz:"Pacific/Honolulu",f:"🇺🇸"},
+  {n:"Anchorage",c:"United States",tz:"America/Anchorage",f:"🇺🇸"},
+  {n:"Toronto",c:"Canada",tz:"America/Toronto",f:"🇨🇦"},
+  {n:"Vancouver",c:"Canada",tz:"America/Vancouver",f:"🇨🇦"},
+  {n:"Mexico City",c:"Mexico",tz:"America/Mexico_City",f:"🇲🇽"},
+  {n:"São Paulo",c:"Brazil",tz:"America/Sao_Paulo",f:"🇧🇷"},
+  {n:"Buenos Aires",c:"Argentina",tz:"America/Argentina/Buenos_Aires",f:"🇦🇷"},
+  {n:"Lima",c:"Peru",tz:"America/Lima",f:"🇵🇪"},
+  {n:"Santiago",c:"Chile",tz:"America/Santiago",f:"🇨🇱"},
+  {n:"London",c:"United Kingdom",tz:"Europe/London",f:"🇬🇧"},
+  {n:"Dublin",c:"Ireland",tz:"Europe/Dublin",f:"🇮🇪"},
+  {n:"Lisbon",c:"Portugal",tz:"Europe/Lisbon",f:"🇵🇹"},
+  {n:"Madrid",c:"Spain",tz:"Europe/Madrid",f:"🇪🇸"},
+  {n:"Paris",c:"France",tz:"Europe/Paris",f:"🇫🇷"},
+  {n:"Amsterdam",c:"Netherlands",tz:"Europe/Amsterdam",f:"🇳🇱"},
+  {n:"Berlin",c:"Germany",tz:"Europe/Berlin",f:"🇩🇪"},
+  {n:"Zurich",c:"Switzerland",tz:"Europe/Zurich",f:"🇨🇭"},
+  {n:"Rome",c:"Italy",tz:"Europe/Rome",f:"🇮🇹"},
+  {n:"Stockholm",c:"Sweden",tz:"Europe/Stockholm",f:"🇸🇪"},
+  {n:"Oslo",c:"Norway",tz:"Europe/Oslo",f:"🇳🇴"},
+  {n:"Helsinki",c:"Finland",tz:"Europe/Helsinki",f:"🇫🇮"},
+  {n:"Warsaw",c:"Poland",tz:"Europe/Warsaw",f:"🇵🇱"},
+  {n:"Athens",c:"Greece",tz:"Europe/Athens",f:"🇬🇷"},
+  {n:"Reykjavik",c:"Iceland",tz:"Atlantic/Reykjavik",f:"🇮🇸"},
+  {n:"Moscow",c:"Russia",tz:"Europe/Moscow",f:"🇷🇺"},
+  {n:"Istanbul",c:"Türkiye",tz:"Europe/Istanbul",f:"🇹🇷"},
+  {n:"Cairo",c:"Egypt",tz:"Africa/Cairo",f:"🇪🇬"},
+  {n:"Lagos",c:"Nigeria",tz:"Africa/Lagos",f:"🇳🇬"},
+  {n:"Nairobi",c:"Kenya",tz:"Africa/Nairobi",f:"🇰🇪"},
+  {n:"Johannesburg",c:"South Africa",tz:"Africa/Johannesburg",f:"🇿🇦"},
+  {n:"Dubai",c:"United Arab Emirates",tz:"Asia/Dubai",f:"🇦🇪"},
+  {n:"Riyadh",c:"Saudi Arabia",tz:"Asia/Riyadh",f:"🇸🇦"},
+  {n:"Tehran",c:"Iran",tz:"Asia/Tehran",f:"🇮🇷"},
+  {n:"Tel Aviv",c:"Israel",tz:"Asia/Jerusalem",f:"🇮🇱"},
+  {n:"Karachi",c:"Pakistan",tz:"Asia/Karachi",f:"🇵🇰"},
+  {n:"Mumbai",c:"India",tz:"Asia/Kolkata",f:"🇮🇳"},
+  {n:"Dhaka",c:"Bangladesh",tz:"Asia/Dhaka",f:"🇧🇩"},
+  {n:"Bangkok",c:"Thailand",tz:"Asia/Bangkok",f:"🇹🇭"},
+  {n:"Jakarta",c:"Indonesia",tz:"Asia/Jakarta",f:"🇮🇩"},
+  {n:"Singapore",c:"Singapore",tz:"Asia/Singapore",f:"🇸🇬"},
+  {n:"Kuala Lumpur",c:"Malaysia",tz:"Asia/Kuala_Lumpur",f:"🇲🇾"},
+  {n:"Ho Chi Minh City",c:"Vietnam",tz:"Asia/Ho_Chi_Minh",f:"🇻🇳"},
+  {n:"Hong Kong, China",c:"China",tz:"Asia/Hong_Kong",f:"🇨🇳"},
+  {n:"Shanghai",c:"China",tz:"Asia/Shanghai",f:"🇨🇳"},
+  {n:"Taipei, China",c:"China",tz:"Asia/Taipei",f:"🇨🇳"},
+  {n:"Seoul",c:"South Korea",tz:"Asia/Seoul",f:"🇰🇷"},
+  {n:"Tokyo",c:"Japan",tz:"Asia/Tokyo",f:"🇯🇵"},
+  {n:"Manila",c:"Philippines",tz:"Asia/Manila",f:"🇵🇭"},
+  {n:"Sydney",c:"Australia",tz:"Australia/Sydney",f:"🇦🇺"},
+  {n:"Melbourne",c:"Australia",tz:"Australia/Melbourne",f:"🇦🇺"},
+  {n:"Perth",c:"Australia",tz:"Australia/Perth",f:"🇦🇺"},
+  {n:"Auckland",c:"New Zealand",tz:"Pacific/Auckland",f:"🇳🇿"}
+];
+
+/* ---------- timezone helpers ---------- */
+function tzOffsetMs(date, timeZone){
+  const dtf = new Intl.DateTimeFormat('en-US',{timeZone,hour12:false,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  const p = dtf.formatToParts(date); const m={};
+  for(const x of p){ if(x.type!=='literal') m[x.type]=x.value; }
+  let hr = m.hour==='24'?'00':m.hour;
+  const asLocal = new Date(Date.UTC(+m.year, +m.month-1, +m.day, +hr, +m.minute, +m.second));
+  return asLocal.getTime() - date.getTime();
+}
+function wallToUtc(Y,Mo,D,h,m, timeZone){
+  const utc = Date.UTC(Y, Mo-1, D, h, m, 0);
+  const off = tzOffsetMs(new Date(utc), timeZone);
+  return utc - off;
+}
+function fmtZone(date, timeZone, opts){
+  return new Intl.DateTimeFormat(lang==='zh'?'zh-CN':'en-US', Object.assign({timeZone}, opts)).format(date);
+}
+function offsetLabel(timeZone, date){
+  const ms = tzOffsetMs(date||new Date(), timeZone);
+  const sign = ms>=0?'+':'-';
+  const a = Math.abs(ms)/3600000;
+  const hh = Math.floor(a);
+  const mm = Math.round((a-hh)*60);
+  return 'UTC'+sign+hh+(mm?(':'+String(mm).padStart(2,'0')):'');
+}
+function cityByTz(tz){ return CITIES.find(c=>c.tz===tz); }
+
+/* ---------- i18n apply ---------- */
+function applyI18n(){
+  document.documentElement.lang = lang==='zh'?'zh':'en';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k = el.getAttribute('data-i18n');
+    if(T[lang][k]!=null) el.textContent = T[lang][k];
+  });
+  document.querySelectorAll('#langToggle button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+  document.getElementById('themeBtn').textContent = document.documentElement.getAttribute('data-theme')==='dark'?'☀️':'🌙';
+}
+function setLang(l){ lang=l; localStorage.setItem('zeitra_lang',l); applyI18n(); }
+
+/* ---------- theme ---------- */
+function initTheme(){
+  const t = localStorage.getItem('zeitra_theme') || (window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+  document.documentElement.setAttribute('data-theme',t);
+}
+function toggleTheme(){
+  const cur = document.documentElement.getAttribute('data-theme');
+  const next = cur==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',next);
+  localStorage.setItem('zeitra_theme',next);
+  applyI18n();
+}
+
+/* ---------- toolbar ---------- */
+function showTool(id){
+  document.querySelectorAll('#toolbar button').forEach(b=>b.classList.toggle('active', b.dataset.tool===id));
+  document.querySelectorAll('.tool').forEach(s=>s.classList.toggle('hide', s.id!=='tool-'+id));
+  const el = document.getElementById('tool-'+id);
+  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ---------- 1. World Clock ---------- */
+let wcSel = JSON.parse(localStorage.getItem('zeitra_wc')||'["America/New_York","Europe/London","Asia/Shanghai","Asia/Tokyo","Australia/Sydney"]');
+function fillCitySelect(sel, exclude){
+  sel.innerHTML='';
+  CITIES.forEach((c,i)=>{
+    if(exclude && exclude.includes(c.tz)) return;
+    const o=document.createElement('option'); o.value=i; o.textContent=c.f+' '+c.n+' — '+c.c; sel.appendChild(o);
+  });
+}
+function wcAddCity(){
+  const i = +document.getElementById('wcAdd').value;
+  const tz = CITIES[i].tz;
+  if(!wcSel.includes(tz)){ wcSel.push(tz); localStorage.setItem('zeitra_wc',JSON.stringify(wcSel)); }
+  renderClocks();
+}
+function wcRemove(tz){ wcSel = wcSel.filter(t=>t!==tz); localStorage.setItem('zeitra_wc',JSON.stringify(wcSel)); renderClocks(); }
+function renderClocks(){
+  const box = document.getElementById('wcClocks'); box.innerHTML='';
+  fillCitySelect(document.getElementById('wcAdd'), wcSel);
+  wcSel.forEach(tz=>{
+    const c = cityByTz(tz); if(!c) return;
+    const div=document.createElement('div'); div.className='clock'; div.dataset.tz=tz;
+    div.innerHTML = '<button class="rm" title="remove" onclick="wcRemove(\''+tz.replace(/'/g,"\\'")+'\')">✕</button>'+
+      '<div class="city">'+c.f+' '+c.n+'<span class="tag"></span></div>'+
+      '<div class="time">--:--:--</div>'+
+      '<div class="meta"></div>';
+    box.appendChild(div);
+  });
+  tickClocks();
+}
+function tickClocks(){
+  const now = new Date();
+  document.querySelectorAll('#wcClocks .clock').forEach(div=>{
+    const tz=div.dataset.tz; const c=cityByTz(tz);
+    const time = fmtZone(now, tz, {hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
+    const date = fmtZone(now, tz, {weekday:'short',year:'numeric',month:'short',day:'numeric'});
+    const hr = +fmtZone(now, tz, {hour:'2-digit',hour12:false});
+    const day = (hr>=6 && hr<18);
+    div.querySelector('.time').textContent=time;
+    div.querySelector('.meta').textContent = date+' · '+offsetLabel(tz,now);
+    const tag=div.querySelector('.tag'); tag.textContent = day?(lang==='zh'?'白天':'Day'):(lang==='zh'?'夜晚':'Night');
+    tag.className='tag '+(day?'day':'night');
+  });
+}
+
+/* ---------- 2. Time Zone Converter ---------- */
+function fillTzSelect(sel, def){
+  sel.innerHTML=''; CITIES.forEach((c,i)=>{
+    const o=document.createElement('option'); o.value=c.tz; o.textContent=c.f+' '+c.n+' ('+offsetLabel(c.tz)+')'; sel.appendChild(o);
+  });
+  sel.value=def;
+}
+function tzConvert(){
+  const d=document.getElementById('tzDate').value, t=document.getElementById('tzTime').value;
+  const from=document.getElementById('tzFrom').value, to=document.getElementById('tzTo').value;
+  if(!d||!t){ document.getElementById('tzResult').textContent = T[lang].lbl_invalid; return; }
+  const [Y,Mo,D]=d.split('-').map(Number); const [h,m]=t.split(':').map(Number);
+  const utc = wallToUtc(Y,Mo,D,h,m,from);
+  const dt = new Date(utc);
+  const out = fmtZone(dt, to, {weekday:'long',year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:(lang==='en')});
+  const toY=+fmtZone(dt,to,{year:'numeric'}), toMo=+fmtZone(dt,to,{month:'2-digit'}), toD=+fmtZone(dt,to,{day:'2-digit'});
+  const dayDiff = Math.round((Date.UTC(toY,toMo-1,toD) - Date.UTC(Y,Mo-1,D)) / 86400000);
+  let note='';
+  if(dayDiff===1) note=' (+1 day)'; else if(dayDiff===-1) note=' (−1 day)'; else if(dayDiff!==0) note=' ('+(dayDiff>0?'+':'')+dayDiff+' days)';
+  document.getElementById('tzResult').innerHTML =
+    '<div class="big">'+out+note+'</div><div class="note">'+cityByTz(from).n+' → '+cityByTz(to).n+' · '+offsetLabel(to,dt)+'</div>';
+}
+
+/* ---------- 3. Meeting Planner ---------- */
+let mpSel = JSON.parse(localStorage.getItem('zeitra_mp')||'["America/New_York","Europe/London","Europe/Berlin"]');
+function mpAddZone(){
+  const i=+document.getElementById('mpAdd').value; const tz=CITIES[i].tz;
+  if(!mpSel.includes(tz)){ mpSel.push(tz); localStorage.setItem('zeitra_mp',JSON.stringify(mpSel)); }
+  renderMp();
+}
+function mpRemove(tz){ mpSel=mpSel.filter(t=>t!==tz); localStorage.setItem('zeitra_mp',JSON.stringify(mpSel)); renderMp(); }
+function renderMp(){
+  const chips=document.getElementById('mpChips'); chips.innerHTML='';
+  fillCitySelect(document.getElementById('mpAdd'), mpSel);
+  mpSel.forEach(tz=>{
+    const c=cityByTz(tz); if(!c) return;
+    const s=document.createElement('span'); s.className='chip';
+    s.innerHTML=c.f+' '+c.n+' <button onclick="mpRemove(\''+tz.replace(/'/g,"\\'")+'\')">✕</button>';
+    chips.appendChild(s);
+  });
+  buildMpTable();
+}
+function buildMpTable(){
+  const table=document.getElementById('mpTable');
+  const dateStr=document.getElementById('mpDate').value || new Date().toISOString().slice(0,10);
+  const [Y,Mo,D]=dateStr.split('-').map(Number);
+  let start=+document.getElementById('mpStart').value, end=+document.getElementById('mpEnd').value;
+  if(end<=start) end=start+1;
+  const ref = mpSel[0]; if(!ref){ table.innerHTML=''; return; }
+  let head='<tr><th>'+T[lang].h_mp+' ('+cityByTz(ref).n+')</th>';
+  mpSel.forEach(tz=>head+='<th>'+cityByTz(tz).n+'</th>');
+  head+='</tr>';
+  let rows='';
+  let overlapCount=0;
+  for(let h=0; h<24; h++){
+    const utc = wallToUtc(Y,Mo,D,h,0,ref);
+    const dt=new Date(utc);
+    const refLabel = fmtZone(dt, ref, {hour:'2-digit',minute:'2-digit',hour12:false});
+    let cells='<td><b>'+refLabel+'</b></td>';
+    let allOk=true;
+    mpSel.forEach(tz=>{
+      const localH = +fmtZone(dt, tz, {hour:'2-digit',hour12:false});
+      const localLabel = fmtZone(dt, tz, {hour:'2-digit',minute:'2-digit',hour12:false});
+      const ok = localH>=start && localH<end;
+      if(!ok) allOk=false;
+      cells+='<td class="'+(ok?'ok':'no')+'">'+localLabel+'</td>';
+    });
+    if(allOk) overlapCount++;
+    rows+='<tr class="'+(allOk?'overlap':'')+'">'+cells+'</tr>';
+  }
+  table.innerHTML=head+rows;
+  let none=document.getElementById('mpNone');
+  if(overlapCount===0){
+    if(!none){ none=document.createElement('p'); none.id='mpNone'; none.className='note'; document.querySelector('.mp-wrap').appendChild(none); }
+    none.textContent=T[lang].lbl_none;
+  } else if(none){ none.remove(); }
+  // overlap summary line (single, reused)
+  let sum=document.getElementById('mpSummary');
+  if(!sum){ sum=document.createElement('p'); sum.id='mpSummary'; sum.className='note'; document.querySelector('.mp-wrap').appendChild(sum); }
+  sum.textContent = overlapCount+' '+T[lang].lbl_overlap+' ('+start+':00–'+end+':00)';
+}
+
+/* ---------- 4. Age Calculator ---------- */
+function calcAge(){
+  const b=document.getElementById('ageBirth').value;
+  const a=document.getElementById('ageAsOf').value;
+  if(!b){ document.getElementById('ageResult').textContent=T[lang].lbl_invalid; return; }
+  const birth=new Date(b+'T00:00:00');
+  const asof=a?new Date(a+'T00:00:00'):new Date();
+  if(asof<birth){ document.getElementById('ageResult').textContent=T[lang].lbl_invalid; return; }
+  let years=asof.getFullYear()-birth.getFullYear();
+  let months=asof.getMonth()-birth.getMonth();
+  let days=asof.getDate()-birth.getDate();
+  if(days<0){ months--; const pm=new Date(asof.getFullYear(),asof.getMonth(),0); days+=pm.getDate(); }
+  if(months<0){ years--; months+=12; }
+  const totalDays=Math.floor((asof-birth)/86400000);
+  const totalWeeks=Math.floor(totalDays/7);
+  const totalHours=totalDays*24;
+  const totalMinutes=totalHours*60;
+  const wk=lang==='zh'?WK_ZH:WK;
+  const bornWk=wk[birth.getDay()];
+  // next birthday
+  let nb=new Date(asof.getFullYear(),birth.getMonth(),birth.getDate());
+  if(nb<asof) nb=new Date(asof.getFullYear()+1,birth.getMonth(),birth.getDate());
+  const toBday=Math.ceil((nb-asof)/86400000);
+  const L=T[lang];
+  document.getElementById('ageResult').innerHTML=
+    '<div class="big">'+years+' '+L.lbl_years+' '+months+' '+L.lbl_months+' '+days+' '+L.lbl_days+'</div>'+
+    '<div class="grid2">'+
+      stat(L.lbl_total+' — '+L.lbl_days, totalDays.toLocaleString())+
+      stat(L.lbl_weeks, totalWeeks.toLocaleString())+
+      stat(L.lbl_hours, totalHours.toLocaleString())+
+      stat(L.lbl_minutes, totalMinutes.toLocaleString())+
+    '</div>'+
+    '<div class="note">'+L.lbl_born_on+' '+bornWk+' · '+L.lbl_next_bday+': '+toBday+' '+L.lbl_days+'</div>';
+}
+function stat(label,val){ return '<div class="stat"><span>'+label+'</span><b>'+val+'</b></div>'; }
+
+/* ---------- 5. Date Difference ---------- */
+function calcDiff(){
+  const f=document.getElementById('diffFrom').value, t=document.getElementById('diffTo').value;
+  if(!f||!t){ document.getElementById('diffResult').textContent=T[lang].lbl_invalid; return; }
+  const d1=new Date(f+'T00:00:00'), d2=new Date(t+'T00:00:00');
+  const diffMs=Math.abs(d2-d1);
+  const days=Math.floor(diffMs/86400000);
+  const weeks=Math.floor(days/7);
+  let years=d2.getFullYear()-d1.getFullYear(); let months=d2.getMonth()-d1.getMonth();
+  if(months<0){ years--; months+=12; }
+  const L=T[lang];
+  document.getElementById('diffResult').innerHTML=
+    '<div class="big">'+days.toLocaleString()+' '+L.lbl_days+'</div>'+
+    '<div class="grid2">'+
+      stat(L.lbl_weeks, weeks.toLocaleString())+
+      stat(L.lbl_years, years)+
+      stat(L.lbl_months_short, months)+
+      stat(L.lbl_total+' '+L.lbl_days, days.toLocaleString())+
+    '</div>';
+}
+
+/* ---------- 6. Date Calculator ---------- */
+function calcDate(){
+  const s=document.getElementById('dateStart').value;
+  if(!s){ document.getElementById('dateResult').textContent=T[lang].lbl_invalid; return; }
+  const [Y,Mo,D]=s.split('-').map(Number);
+  const op=document.getElementById('dateOp').value;
+  const amt=+document.getElementById('dateAmt').value||0;
+  const unit=document.getElementById('dateUnit').value;
+  const sign=op==='add'?1:-1;
+  let y=Y, mo=Mo, d=D;
+  if(unit==='days') d+=sign*amt;
+  else if(unit==='weeks') d+=sign*amt*7;
+  else if(unit==='months') mo+=sign*amt;
+  else if(unit==='years') y+=sign*amt;
+  const base=new Date(Date.UTC(y, mo-1, d)); // auto-normalizes overflow
+  const out=fmtZone(base,'UTC',{year:'numeric',month:'long',day:'numeric',weekday:'long'});
+  document.getElementById('dateResult').innerHTML='<div class="big">'+out+'</div>';
+}
+
+/* ---------- 7. Countdown ---------- */
+let cdTimer=null;
+function startCountdown(){
+  if(cdTimer) clearInterval(cdTimer);
+  const name=document.getElementById('cdName').value||'Event';
+  const target=document.getElementById('cdTarget').value;
+  if(!target){ document.getElementById('cdResult').textContent=T[lang].lbl_invalid; return; }
+  const t=new Date(target).getTime();
+  const el=document.getElementById('cdResult');
+  const tick=()=>{
+    const now=Date.now(); const diff=t-now;
+    if(diff<=0){ el.innerHTML='<div class="big">'+(lang==='zh'?'时间到！':'Time is up!')+'</div>'; clearInterval(cdTimer); return; }
+    const d=Math.floor(diff/86400000);
+    const h=Math.floor(diff%86400000/3600000);
+    const m=Math.floor(diff%3600000/60000);
+    const s=Math.floor(diff%60000/1000);
+    el.innerHTML='<div class="big">'+name+'</div><div class="grid2">'+
+      stat(lang==='zh'?'天':'days',d)+stat(lang==='zh'?'时':'hours',h)+stat(lang==='zh'?'分':'minutes',m)+stat(lang==='zh'?'秒':'seconds',s)+
+      '</div>';
+  };
+  tick(); cdTimer=setInterval(tick,1000);
+}
+
+/* ---------- 8. Duration ---------- */
+function calcDur(){
+  const s=document.getElementById('durStart').value, e=document.getElementById('durEnd').value;
+  const next=document.getElementById('durNext').checked;
+  if(!s||!e){ document.getElementById('durResult').textContent=T[lang].lbl_invalid; return; }
+  const [sh,sm]=s.split(':').map(Number), [eh,em]=e.split(':').map(Number);
+  let mins=(eh*60+em)-(sh*60+sm);
+  if(mins<0 || next) mins+=24*60;
+  const h=Math.floor(mins/60), m=mins%60;
+  const L=T[lang];
+  document.getElementById('durResult').innerHTML='<div class="big">'+h+' '+L.lbl_hours+' '+m+' '+L.lbl_minutes+'</div><div class="note">'+(next?(lang==='zh'?'跨夜时长':'Overnight span'):'')+'</div>';
+}
+
+/* ---------- init ---------- */
+function init(){
+  initTheme();
+  const params=new URLSearchParams(location.search);
+  if(params.get('lang')==='zh') lang='zh';
+  setLang(lang);
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  // defaults
+  const today=new Date().toISOString().slice(0,10);
+  ['tzDate','mpDate','diffFrom','diffTo','dateStart','ageAsOf'].forEach(id=>{ const el=document.getElementById(id); if(el && !el.value) el.value=today; });
+  const bd=new Date(); bd.setFullYear(bd.getFullYear()-30); document.getElementById('ageBirth').value=bd.toISOString().slice(0,10);
+  const cd=new Date(); cd.setDate(cd.getDate()+1); cd.setHours(0,0);
+  document.getElementById('cdTarget').value=cd.toISOString().slice(0,16);
+  fillTzSelect(document.getElementById('tzFrom'),'America/New_York');
+  fillTzSelect(document.getElementById('tzTo'),'Asia/Shanghai');
+  renderClocks();
+  renderMp();
+  setInterval(tickClocks,1000);
+  // events
+  document.querySelectorAll('#langToggle button').forEach(b=>b.onclick=()=>{ setLang(b.dataset.lang); renderClocks(); buildMpTable(); });
+  document.getElementById('themeBtn').onclick=toggleTheme;
+  document.querySelectorAll('#toolbar button').forEach(b=>b.onclick=()=>showTool(b.dataset.tool));
+  ['mpDate','mpStart','mpEnd'].forEach(id=>document.getElementById(id).addEventListener('change',buildMpTable));
+  // deep link ?tool=
+  if(params.get('tool')) showTool(params.get('tool'));
+  else showTool('world-clock');
+}
+document.addEventListener('DOMContentLoaded',init);
+</script>
+</body>
+</html>
