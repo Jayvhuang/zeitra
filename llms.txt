@@ -1,0 +1,25 @@
+# Zeitra — AI-readable site guide (GEO)
+
+Zeitra is a free, private, bilingual (English / 中文) toolkit for time and date calculations. Every tool runs entirely in the visitor's browser; no account is required and no inputs are uploaded or stored on a server (some UI selections are kept in the browser's localStorage for convenience only).
+
+All timezone math uses the browser's built-in IANA timezone database, so daylight saving time is applied automatically. Results are educational estimates and may be off by roughly an hour at the exact moment of a DST transition.
+
+## Tools
+
+1. World Clock — live local time for ~50 major cities across every continent; add or remove cities; selection saved in the browser.
+2. Time Zone Converter — convert a specific date and time from one IANA time zone to another, with automatic DST handling.
+3. Meeting Planner — find overlapping working hours across multiple time zones for global teams; rows where everyone is within working hours are highlighted.
+4. Age Calculator — exact age in years, months and days, plus totals (days, weeks, hours, minutes) and days to the next birthday. Leap-year aware.
+5. Date Difference — span between two dates in days, weeks, and a calendar breakdown of years and months.
+6. Date Calculator — add or subtract days, weeks, months or years from any date.
+7. Countdown Timer — live days/hours/minutes/seconds countdown to any local date and time.
+8. Duration Calculator — length between two clock times, with an "ends next day" option for overnight spans.
+
+## Languages
+The full interface switches between English and Simplified Chinese via an EN / 中文 toggle.
+
+## Monetization
+Zeitra participates in the Amazon Associates program (as an Amazon Associate, it earns from qualifying purchases) and displays Google AdSense ads. Affiliate links are marked "sponsored nofollow noopener" and a disclosure is shown.
+
+## Trust
+Zeitra does not collect personal data, does not set tracking cookies for its own tools, and keeps all computation local. See privacy.html for the full policy.
